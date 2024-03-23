@@ -248,3 +248,30 @@ data.results[0].interconnections.forEach((interconnection) => {
 		`${toWaypoint.lat},${toWaypoint.lng}`
 	);
 });
+
+
+// IM JUST COPYTING MY CODE HERE, ILL CONFIGURE IT LATER (DONT HAVE TIME)
+
+const apiURL = "https://wse.cit.api.here.com/2/findsequence.json?start=50.0715,8.2434&destination1=50.1073,8.6647&destination2=49.8728,8.6326&destination3=50.0505,8.5698&destination4=50.1218,8.9298&end=50.0021,8.259&improveFor=time&mode=fastest;car&app_id=x75FUBvR34xyVXesEcBQ";
+
+const apiKEY = 'eyJhbGciOiJSUzUxMiIsImN0eSI6IkpXVCIsImlzcyI6IkhFUkUiLCJhaWQiOiJ4NzVGVUJ2UjM0eHlWWGVzRWNCUSIsImlhdCI6MTcxMTA0OTAxNCwiZXhwIjoxNzExMTM1NDE0LCJraWQiOiJqMSJ9.ZXlKaGJHY2lPaUprYVhJaUxDSmxibU1pT2lKQk1qVTJRMEpETFVoVE5URXlJbjAuLmhfdXFsR2lxOXRPcm9uSE9HelZacEEuUTR0c1JDdnZXWElaX0hwUnBWdjBTc3JwTmVMdnp6TFFPOTJHb0FZUk9reGtNcV8tZXRKVm5TOTBNQ0owSVd6R2xMd2QzaHlYUnI1TE42WGYtLWUwanV4QTFzbEpodGkxVGo5MEF4SW5UYm9zc05RMEp1N2l6ZWE3OG93ZUxWd01CV3lPd0ZzRzRfMTRGOXh4Q01KZ1BBLlEzc3NwbW5tVDZ4cEJIQWdkVXY5YzlKT2RnQVBfeGc1a0NxZjJCR1BKeWs.MeBXIWi3kAPwzxpmmGtnyWSI6RgCHS5_zARucmaZOiXnu5U6jCeX-wcjVVJ_L9nUZcZnNqytX7Ryv1R6WhfiSdETo1uKtPFwWAx2vk3uq1lYQ7saNaT_zOfNZvgdwK240qYCHmaWLTPIckzTcqMKfx_Kb7VD5qBbBnb0V0EWK8KBLIrR_ou2_oFfq29rIv4JxwLnlpAShzO6AHi-KOplFplOz__l3dbcKZ34VtrT8Dki-3GFSsNl3N50TuYB15QQPZjs9Y7W-3XjdRvKwGKEO_f-LeC2oy3mv5WT90L0-6_VJrekkxK8jjBXXB5HakggMZGHisPPGd_Z2g48HIluyQ';
+
+async function getPaths(){
+  const destinations = [];
+  axios.get(apiURL, {
+      headers: {
+          'Authorization': `Bearer ${apiKEY}`
+      }
+  }).then((response) => {
+      // console.log(response.data);  
+      response.data.results.forEach((result) => {
+          console.log(result.waypoints);
+          destinations.push(...result.waypoints);
+      });
+  }).catch((error) => {
+      console.log(error);
+  })
+  return paths;
+}
+
+const temp = getPaths();
