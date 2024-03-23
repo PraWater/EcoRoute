@@ -113,7 +113,6 @@ async function pathsOnMap(data) {
 			lng: waypoint.lng,
 		};
 	});
-
 	data.results[0].interconnections.forEach((interconnection) => {
 		const fromWaypoint = waypointCoordinates[interconnection.fromWaypoint];
 		const toWaypoint = waypointCoordinates[interconnection.toWaypoint];
@@ -143,4 +142,4 @@ async function getPaths() {
 		});
 }
 
-getPaths();
+export { getPaths };

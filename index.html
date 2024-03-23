@@ -10,10 +10,33 @@
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <div id="map"></div>
+    <div class="sideBar">
+      <h2>Eco Route</h2>
+      <div class="form-group">
+        <label for="start">Start</label>
+        <input type="text" class="form-control" id="start" placeholder="Enter start location" />
+        <div class="foodDeliveries">
+          <h3>Food deliveries</h3>
+          <button class="btn btn-outline-primary addDelivery">+</button>
+        </div>
+        <div class="deliveries">
+        </div>
+      <button class="calcRoute btn btn-primary">Submit</button>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
+    <script type="module" src="/ui.js"></script>
   </body>
 </html>

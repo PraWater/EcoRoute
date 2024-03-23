@@ -1,7 +1,44 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 #map {
 	position: absolute;
+	top: 0;
 	right: 0;
-	width: 75%;
+	width: 100vw;
 	height: 100vh;
 	background: grey;
+}
+
+.sideBar {
+	position: absolute;
+	top: 2vh;
+	left: 2vh;
+	height: 96vh;
+	width: 25vw;
+	border-radius: 24px;
+	background: radial-gradient(
+		107.32% 141.42% at 0% 0%,
+		rgba(255, 255, 255, 0.7) 0%,
+		rgba(255, 255, 255, 0.31) 99.99%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	box-shadow: 4px 4px 40px 0px rgba(0, 0, 0, 0.36),
+		-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
+	backdrop-filter: blur(21px);
+	padding: 2rem;
+}
+
+.calcRoute {
+	margin-top: auto;
+	width: 100%;
+}
+
+.foodDeliveries {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
