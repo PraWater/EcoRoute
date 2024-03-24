@@ -1,7 +1,9 @@
 import axios from "axios";
 import {getDestinations} from "./ui.js";
-const apikey = import.meta.env.VITE_APIKEY;
-const appid = import.meta.env.VITE_APPID;
+// const apikey = import.meta.env.VITE_APIKEY;
+// const appid = import.meta.env.VITE_APPID;
+const apikey = "B71DvfBZ9Q5ABZRWhDBqAGyEZY9krolmeL3X2Pe59X4"
+const appid = "x75FUBvR34xyVXesEcBQ"
 console.log(apikey)
 const mapContainer = document.getElementById("map");
 const platform = new H.service.Platform({
@@ -126,11 +128,9 @@ async function pathsOnMap(data) {
 		);
 	});
 }
-let apiURL = '';
-const btn = document.getElementById("submit-btn");
-btn.addEventListener("click", runMain);
-let destinations = [];
 async function runMain(){
+	let apiURL = '';
+	let destinations = [];
 	const startLocation = document.getElementById("start").value;
 	destinations = getDestinations();
 
@@ -141,16 +141,18 @@ async function runMain(){
 	dynamicURL += `&end=${startLocation}&improveFor=time&mode=fastest;car&app_id=${appid}&apikey=${apikey}`;
 	console.log(dynamicURL);
 	apiURL = dynamicURL;
+	return apiURL;
 }
 
 
 // const apiURL = `https://wse.cit.api.here.com/2/findsequence.json?start=50.0715,8.2434&destination1=50.1073,8.6647&destination2=49.8728,8.6326&destination3=50.0505,8.5698&destination4=50.1218,8.9298&end=50.0021,8.259&improveFor=time&mode=fastest;car&app_id=${appid}&apikey=${apikey}`;
 
 async function getPaths() {
+	const apiURL = await runMain();
 	axios
 		.get(apiURL)
 		.then((response) => {
-			console.log(response.data);
+			console.log(response);
 			response.data.results.forEach((result) => {
 				console.log(result.waypoints);
 			});
