@@ -160,7 +160,8 @@ async function getPaths() {
 		});
 }
 
-function markerLocation(deliveryCount) {
+function markerLocation(idNo) {
+	const temp = idNo;
 	const center = map.getCenter();
 	const marker = new H.map.Marker(center, { volatility: true });
 	marker.draggable = true;
@@ -177,6 +178,8 @@ function markerLocation(deliveryCount) {
 	map.addEventListener(
 		"dragend",
 		function dragEndFunc(evt, deliveryCount) {
+			deliveryCount = temp;
+			console.log("current selected is: "+deliveryCount);
 			if (evt.target instanceof H.map.Marker) {
 				console.log(evt.target.getGeometry());
 				behavior.enable();

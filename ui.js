@@ -15,11 +15,21 @@ function addDelivery() {
         <i class="bi bi-pencil-fill clickIcon" id="icon${deliveryCount}" data-toggle="tool-tip" data-placement="right" title="select on map" data-animation="true"></i>
     `;
 	document.querySelector(".deliveries").appendChild(delivery);
-	document
-		.getElementById(`icon${deliveryCount}`)
-		.addEventListener("click", () => {
-			markerLocation(deliveryCount);
-		});
+	// document
+	// 	.getElementById(`icon${deliveryCount}`)
+	// 	.addEventListener("click", () => {
+	// 		markerLocation(deliveryCount);
+	// 		console.log(deliveryCount);
+	// 	});
+
+	const elements = document.querySelectorAll("[id^=icon]");
+	elements.forEach((element)=>{
+		element.addEventListener("click",()=>{
+			const idNo = parseInt(element.id.match(/\d+/)[0]);
+			markerLocation(idNo);
+			// console.log(idNo);
+		})
+	})
 }
 
 addDelivery();
