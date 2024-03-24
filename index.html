@@ -18,6 +18,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
@@ -27,7 +28,10 @@
         <h2>Eco Route</h2>
       </div>
       <div class="form-group">
-        <h3  for="start" class="start-text">Start</h3> 
+        <div class="start-box">
+          <h3  for="start" class="start-text">Start</h3>
+          <i class="bi bi-pencil-fill" data-toggle="tool-tip" data-placement="right" title="select on map" data-animation="true"></i>
+        </div>
         <input type="text" class="form-control" id="start" placeholder="Enter start location" />
         <div class="foodDeliveries">
           <h3>Food deliveries</h3>

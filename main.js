@@ -1,7 +1,8 @@
 import axios from "axios";
 import {getDestinations} from "./ui.js";
-const apikey = import.meta.env.VITE_APIKEY;
-const appid = import.meta.env.VITE_APPID;
+
+// const apikey = import.meta.env.VITE_APIKEY;
+// const appid = import.meta.env.VITE_APPID;
 console.log(apikey)
 const mapContainer = document.getElementById("map");
 const platform = new H.service.Platform({

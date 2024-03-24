@@ -5,7 +5,7 @@
 }
 
 body h2{
-	font-size: 5rem;
+	font-size: 4rem;
 	font-weight: 900;
 }
 
@@ -35,6 +35,35 @@ body h2{
 		-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset;
 	backdrop-filter: blur(21px);
 	padding: 2rem;
+}
+
+.start-box{
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.delivery label{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-around;
+	gap:1rem;
+}
+
+.delivery{
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.bi-pencil-fill{
+	font-size: 1.8rem;
+	aspect-ratio: 1;
+	padding: 1rem;
+	border-radius: 50%;
+	cursor: pointer; 
 }
 
 .heading{
@@ -68,14 +97,6 @@ body h2{
   gap: 20px;
 }
 
-/* .delivery {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	display: flex;
-	justify-content: space-between;
-} */
 
 .delivery label {
   font-weight: bold;

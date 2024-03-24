@@ -10,6 +10,7 @@ function addDelivery() {
     delivery.innerHTML = `
         <label for="delivery${deliveryCount}">Delivery${deliveryCount}<label>
         <input type="text" class="form-control" id="delivery${deliveryCount}" placeholder="Enter delivery location" />
+        <i class="bi bi-pencil-fill" data-toggle="tool-tip" data-placement="right" title="select on map" data-animation="true"></i>
     `;
     document.querySelector(".deliveries").appendChild(delivery);
 }
