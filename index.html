@@ -23,17 +23,19 @@
   <body>
     <div id="map"></div>
     <div class="sideBar">
-      <h2>Eco Route</h2>
+      <div class="heading">
+        <h2>Eco Route</h2>
+      </div>
       <div class="form-group">
-        <label for="start">Start</label>
+        <h3  for="start" class="start-text">Start</h3> 
         <input type="text" class="form-control" id="start" placeholder="Enter start location" />
         <div class="foodDeliveries">
           <h3>Food deliveries</h3>
-          <button class="btn btn-outline-primary addDelivery">+</button>
         </div>
         <div class="deliveries">
         </div>
-      <button class="calcRoute btn btn-primary" id="submit-btn">Submit</button>
+        <button class="btn btn-outline-primary addDelivery">Add location</button>
+      <button class="calcRoute btn btn-primary" id="submit-btn">Get Route!</button>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
