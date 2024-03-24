@@ -1,9 +1,8 @@
 import axios from "axios";
-import {getDestinations} from "./ui.js";
-
-// const apikey = import.meta.env.VITE_APIKEY;
-// const appid = import.meta.env.VITE_APPID;
-console.log(apikey)
+import { getDestinations } from "./ui.js";
+const apikey = import.meta.env.VITE_APIKEY;
+const appid = import.meta.env.VITE_APPID;
+console.log(apikey);
 const mapContainer = document.getElementById("map");
 const platform = new H.service.Platform({
 	apikey: apikey,
@@ -127,22 +126,21 @@ async function pathsOnMap(data) {
 		);
 	});
 }
-async function runMain(){
-	let apiURL = '';
+async function runMain() {
+	let apiURL = "";
 	let destinations = [];
 	const startLocation = document.getElementById("start").value;
 	destinations = getDestinations();
 
 	let dynamicURL = `https://wse.cit.api.here.com/2/findsequence.json?start=${startLocation}`;
-	for(let i=1; i<=destinations.length; i++){
-		dynamicURL += `&destination${i}=${destinations[i-1]}`
+	for (let i = 1; i <= destinations.length; i++) {
+		dynamicURL += `&destination${i}=${destinations[i - 1]}`;
 	}
 	dynamicURL += `&end=${startLocation}&improveFor=time&mode=fastest;car&app_id=${appid}&apikey=${apikey}`;
 	console.log(dynamicURL);
 	apiURL = dynamicURL;
 	return apiURL;
 }
-
 
 // const apiURL = `https://wse.cit.api.here.com/2/findsequence.json?start=50.0715,8.2434&destination1=50.1073,8.6647&destination2=49.8728,8.6326&destination3=50.0505,8.5698&destination4=50.1218,8.9298&end=50.0021,8.259&improveFor=time&mode=fastest;car&app_id=${appid}&apikey=${apikey}`;
 
@@ -162,4 +160,50 @@ async function getPaths() {
 		});
 }
 
-export { getPaths };
+function markerLocation(deliveryCount) {
+	const center = map.getCenter();
+	const marker = new H.map.Marker(center, { volatility: true });
+	marker.draggable = true;
+	map.addObject(marker);
+
+	// Add event listeners for marker movement
+	map.addEventListener(
+		"dragstart",
+		(evt) => {
+			if (evt.target instanceof H.map.Marker) behavior.disable();
+		},
+		false
+	);
+	map.addEventListener(
+		"dragend",
+		function dragEndFunc(evt, deliveryCount) {
+			if (evt.target instanceof H.map.Marker) {
+				console.log(evt.target.getGeometry());
+				behavior.enable();
+				const loc = evt.target.getGeometry();
+				if (deliveryCount > 0)
+					document.getElementById(
+						`delivery${deliveryCount}`
+					).value = `${loc.lat}, ${loc.lng}`;
+				else document.getElementById("start").value = `${loc.lat}, ${loc.lng}`;
+				map.removeObject(evt.target);
+				map.removeEventListener("dragend", dragEndFunc, false);
+			}
+		},
+		false
+	);
+	map.addEventListener(
+		"drag",
+		(evt) => {
+			const pointer = evt.currentPointer;
+			if (evt.target instanceof H.map.Marker) {
+				evt.target.setGeometry(
+					map.screenToGeo(pointer.viewportX, pointer.viewportY)
+				);
+			}
+		},
+		false
+	);
+}
+
+export { getPaths, markerLocation };

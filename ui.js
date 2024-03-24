@@ -1,33 +1,42 @@
 const button = document.getElementById("submit-btn");
 const addButton = document.querySelector(".addDelivery");
-import { getPaths } from './main.js';
+import { getPaths, markerLocation } from "./main.js";
 let deliveryCount = 0;
-
+document.getElementById("startIcon").addEventListener("click", () => {
+	markerLocation(0);
+});
 function addDelivery() {
-    deliveryCount++;
-    const delivery = document.createElement("div");
-    delivery.className = "delivery";
-    delivery.innerHTML = `
+	deliveryCount++;
+	const delivery = document.createElement("div");
+	delivery.className = "delivery";
+	delivery.innerHTML = `
         <label for="delivery${deliveryCount}">Delivery${deliveryCount}<label>
         <input type="text" class="form-control" id="delivery${deliveryCount}" placeholder="Enter delivery location" />
-        <i class="bi bi-pencil-fill" data-toggle="tool-tip" data-placement="right" title="select on map" data-animation="true"></i>
+        <i class="bi bi-pencil-fill clickIcon" id="icon${deliveryCount}" data-toggle="tool-tip" data-placement="right" title="select on map" data-animation="true"></i>
     `;
-    document.querySelector(".deliveries").appendChild(delivery);
+	document.querySelector(".deliveries").appendChild(delivery);
+	document
+		.getElementById(`icon${deliveryCount}`)
+		.addEventListener("click", () => {
+			markerLocation(deliveryCount);
+		});
 }
+
+addDelivery();
 
 addButton.addEventListener("click", addDelivery);
 let destinations = [];
 button.addEventListener("click", () => {
-		destinations = [];
-    for (let i = 1; i <= deliveryCount; i++) {
-        const deliveryInput = document.getElementById(`delivery${i}`);
-        if (deliveryInput) { 
-            destinations.push(deliveryInput.value);
-        }
-    }
-		getPaths();
+	destinations = [];
+	for (let i = 1; i <= deliveryCount; i++) {
+		const deliveryInput = document.getElementById(`delivery${i}`);
+		if (deliveryInput) {
+			destinations.push(deliveryInput.value);
+		}
+	}
+	getPaths();
 });
-export function getDestinations(){
+
+export function getDestinations() {
 	return destinations;
 }
-
