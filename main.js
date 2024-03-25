@@ -107,6 +107,8 @@ function addManueversToMap(route) {
 	});
 }
 
+let markers = [];
+
 async function pathsOnMap(data) {
 	const waypointCoordinates = {};
 	data.results[0].waypoints.forEach((waypoint) => {
@@ -114,6 +116,16 @@ async function pathsOnMap(data) {
 			lat: waypoint.lat,
 			lng: waypoint.lng,
 		};
+	});
+	for (let i = 0; i < markers.length; i++) {
+		map.removeObject(markers[i]);
+	}
+	markers = [];
+	Object.keys(waypointCoordinates).forEach((key) => {
+		const waypoint = waypointCoordinates[key];
+		const marker = new H.map.Marker(waypoint);
+		map.addObject(marker);
+		markers.push(marker);
 	});
 	data.results[0].interconnections.forEach((interconnection) => {
 		const fromWaypoint = waypointCoordinates[interconnection.fromWaypoint];
@@ -187,7 +199,7 @@ function markerLocation(idNo) {
 						`delivery${deliveryCount}`
 					).value = `${loc.lat}, ${loc.lng}`;
 				else document.getElementById("start").value = `${loc.lat}, ${loc.lng}`;
-				// map.removeObject(evt.target); // I commented it out to leave the marker on the map
+				map.removeObject(evt.target);
 				map.removeEventListener("dragend", dragEndFunc, false);
 			}
 		},

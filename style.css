@@ -8,11 +8,13 @@ body h2 {
 	font-size: 3rem;
 	font-weight: 900;
 	color: #69baa8;
+	margin-left: 1rem;
 }
 
 .eco-logo {
 	height: 3rem;
 	aspect-ratio: 1;
+	transform: translateY(5%);
 }
 
 #map {
@@ -88,6 +90,10 @@ body h2 {
 	background-color: #3e8677;
 }
 
+.calcRoute:focus {
+	background-color: #69baa8;
+}
+
 .addDelivery {
 	width: 100%;
 	background-color: transparent;
@@ -99,6 +105,11 @@ body h2 {
 	background-color: #69baa8;
 	color: white;
 	border: #69baa8 solid 2px;
+}
+
+.addDelivery:focus {
+	background-color: transparent;
+	color: #69baa8;
 }
 
 .btn {
