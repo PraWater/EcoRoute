@@ -4,9 +4,15 @@
 	padding: 0;
 }
 
-body h2{
-	font-size: 4rem;
+body h2 {
+	font-size: 3rem;
 	font-weight: 900;
+	color: #69baa8;
+}
+
+.eco-logo {
+	height: 3rem;
+	aspect-ratio: 1;
 }
 
 #map {
@@ -37,43 +43,68 @@ body h2{
 	padding: 2rem;
 }
 
-.start-box{
+.start-box {
 	display: flex;
 	align-items: center;
 	gap: 2rem;
 }
 
-.delivery label{
+.delivery label {
 	display: flex;
 	width: 100%;
 	align-items: center;
 	justify-content: space-around;
-	gap:1rem;
+	gap: 1rem;
 }
 
-.delivery{
+.delivery {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
-.bi-pencil-fill{
+.bi-pencil-fill {
 	font-size: 1.8rem;
 	aspect-ratio: 1;
 	padding: 1rem;
 	border-radius: 50%;
-	cursor: pointer; 
+	cursor: pointer;
 }
 
-.heading{
+.heading {
 	align-items: center;
 	display: flex;
 }
 
 .calcRoute {
-	margin-top: auto;
 	width: 100%;
+	background-color: #69baa8;
+	border: none;
+	margin-top: 1rem;
+}
+
+.calcRoute:hover {
+	background-color: #3e8677;
+}
+
+.addDelivery {
+	width: 100%;
+	background-color: transparent;
+	border: #69baa8 solid 2px;
+	color: #69baa8;
+}
+
+.addDelivery:hover {
+	background-color: #69baa8;
+	color: white;
+	border: #69baa8 solid 2px;
+}
+
+.btn {
+	border-radius: 8px;
+	font-size: 2rem;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .foodDeliveries {
@@ -83,70 +114,21 @@ body h2{
 	align-items: center;
 }
 
-.foodDeliveries h3{
-	font-size: 3rem;
+.foodDeliveries h3 {
+	font-size: 2.5rem;
 }
 
-.start-text{
-	font-size: 3rem;
+.start-text {
+	font-size: 2.5rem;
 }
 
 .deliveries {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+	display: flex;
+	flex-direction: column;
+	height: 36vh;
+	overflow-y: scroll;
 }
 
-
-.delivery label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.delivery-input:focus {
-	outline: none;
-	border-color: #007bff;
-}
-
-.form-control{
-	height: 40px;
-	width: 100%;
+.form-control {
 	border-radius: 8px;
-	border: 1px solid #ced4da;
-}
-
-
-.btn-outline-primary{
-		height: 40px;
-		width:100%;
-		background-color: #fff;
-		color: #007bff;
-		border-color: #007bff;
-		transition: 0.2s ease-in-out;
-		border-radius: 8px;
-		margin-top: 20px;
-		font-size: 2rem;
-}
-
-.btn-outline-primary:hover{
-		background-color: #007bff;
-		color: #fff;
-}
-
-.btn-primary{
-	height: 40px;
-	width:100%;
-	background-color: limegreen;
-	color: white;
-	border-color: green;
-	transition: 0.2s ease-in-out;
-	border-radius: 8px;
-	margin-top: 20px;
-	font-size: 2rem;
-}
-
-.btn-primary:hover{
-	background-color: white;
-	color: limegreen;
-	border: none;
 }

@@ -8,8 +8,8 @@ const platform = new H.service.Platform({
 });
 const defaultLayers = platform.createDefaultLayers();
 const map = new H.Map(mapContainer, defaultLayers.vector.normal.map, {
-	zoom: 10,
-	center: { lat: 37.7397, lng: -121.4252 },
+	zoom: 7,
+	center: { lat: 17.4065, lng: 78.4772 },
 	pixelRatio: window.devicePixelRatio || 1,
 });
 const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
@@ -46,11 +46,11 @@ function addRouteShapeToMap(route) {
 		let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
 
 		// Create a polyline to display the route:
-		var randomColor = Math.floor(Math.random()*16777215).toString(16);
+		var randomColor = Math.floor(Math.random() * 16777215).toString(16);
 		let polyline = new H.map.Polyline(linestring, {
 			style: {
 				lineWidth: 4,
-				strokeColor: "#"+randomColor,
+				strokeColor: "#" + randomColor,
 			},
 		});
 
@@ -141,8 +141,6 @@ async function runMain() {
 	apiURL = dynamicURL;
 	return apiURL;
 }
-
-// const apiURL = `https://wse.cit.api.here.com/2/findsequence.json?start=50.0715,8.2434&destination1=50.1073,8.6647&destination2=49.8728,8.6326&destination3=50.0505,8.5698&destination4=50.1218,8.9298&end=50.0021,8.259&improveFor=time&mode=fastest;car&app_id=${appid}&apikey=${apikey}`;
 
 async function getPaths() {
 	const apiURL = await runMain();

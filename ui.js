@@ -20,13 +20,6 @@ function addDelivery() {
 	ele.addEventListener("click", () => {
 		markerLocation(idNo);
 	});
-
-	// const elements = document.querySelectorAll("[id^=icon]");
-	// elements[deliveryCount - 1].addEventListener("click", () => {
-	// 	const idNo = parseInt(elements[deliveryCount - 1].id.match(/\d+/)[0]);
-	// 	markerLocation(idNo);
-	// 	// console.log(idNo);
-	// });
 }
 
 addDelivery();

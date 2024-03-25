@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/EcoRoute.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eco Route</title>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
@@ -25,6 +25,7 @@
     <div id="map"></div>
     <div class="sideBar">
       <div class="heading">
+       <img class="eco-logo" src="/EcoRoute.svg" alt="Logo"> 
         <h2>Eco Route</h2>
       </div>
       <div class="form-group">
@@ -38,8 +39,8 @@
         </div>
         <div class="deliveries">
         </div>
-        <button class="btn btn-outline-primary addDelivery">Add location</button>
-      <button class="calcRoute btn btn-primary" id="submit-btn">Get Route!</button>
+        <button class="btn btn-primary addDelivery">Add location</button>
+        <button class="calcRoute btn btn-primary" id="submit-btn">Get Route!</button>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
