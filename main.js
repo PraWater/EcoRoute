@@ -2,7 +2,6 @@ import axios from "axios";
 import { getDestinations } from "./ui.js";
 const apikey = import.meta.env.VITE_APIKEY;
 const appid = import.meta.env.VITE_APPID;
-console.log(apikey);
 const mapContainer = document.getElementById("map");
 const platform = new H.service.Platform({
 	apikey: apikey,
@@ -177,9 +176,9 @@ function markerLocation(idNo) {
 	);
 	map.addEventListener(
 		"dragend",
-		function dragEndFunc(evt, deliveryCount) {
-			deliveryCount = temp;
-			console.log("current selected is: "+deliveryCount);
+		function dragEndFunc(evt) {
+			const deliveryCount = temp;
+			console.log("current selected is: " + deliveryCount);
 			if (evt.target instanceof H.map.Marker) {
 				console.log(evt.target.getGeometry());
 				behavior.enable();
