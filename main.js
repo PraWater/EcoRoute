@@ -46,10 +46,11 @@ function addRouteShapeToMap(route) {
 		let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
 
 		// Create a polyline to display the route:
+		var randomColor = Math.floor(Math.random()*16777215).toString(16);
 		let polyline = new H.map.Polyline(linestring, {
 			style: {
 				lineWidth: 4,
-				strokeColor: "rgba(0, 128, 255, 0.7)",
+				strokeColor: "#"+randomColor,
 			},
 		});
 
@@ -188,7 +189,7 @@ function markerLocation(idNo) {
 						`delivery${deliveryCount}`
 					).value = `${loc.lat}, ${loc.lng}`;
 				else document.getElementById("start").value = `${loc.lat}, ${loc.lng}`;
-				map.removeObject(evt.target);
+				// map.removeObject(evt.target); // I commented it out to leave the marker on the map
 				map.removeEventListener("dragend", dragEndFunc, false);
 			}
 		},
